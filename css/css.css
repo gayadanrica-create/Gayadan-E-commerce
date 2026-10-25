@@ -1,0 +1,776 @@
+:root {
+    --sky-900: #123449;
+    --sky-800: #174866;
+    --sky-700: #236f9d;
+    --sky-600: #3585b5;
+    --sky-500: #4a9fd2;
+    --sky-400: #68b5df;
+    --sky-300: #9bd3ef;
+    --sky-200: #c9e8f7;
+    --sky-100: #e6f4fb;
+    --sky-50:  #f4fbfe;
+
+    --sky-blue-accent: #84c8eb;
+    --sky-blue-deep: #318cbd;
+    --neon-glow: 0 0 6px #84c8eb, 0 0 14px #318cbd, 0 0 28px #318cbd;
+
+    --ease: 0.3s ease;
+}
+
+
+/* =====================================================
+   2. LAYOUT HELPERS
+   ===================================================== */
+
+/* Product grid (home page) */
+.product-grid {
+    margin: 30px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.product-grid > * {
+    width: 100%;
+}
+
+/* Inner-page footers sit flush against the section above */
+.footer.mt-0 {
+    margin-top: 0;
+}
+
+
+/* =====================================================
+   3. TYPOGRAPHY & HEADINGS
+   ===================================================== */
+
+/* Gradient text for headings */
+.heading-gradient {
+    background: linear-gradient(135deg, var(--sky-500), #277ca7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Gallery heading */
+.gallery-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 25px;
+    background: #e4f4fc;
+    color: var(--sky-600);
+    font-weight: bold;
+}
+
+.gallery-title {
+    color: #266d91;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+
+/* =====================================================
+   4. CARDS
+   ===================================================== */
+
+/* Product, review and about cards share one hover motion */
+.card-hover,
+.review-card {
+    border-radius: 1rem;
+}
+
+.card-hover {
+    transition: transform var(--ease), filter var(--ease), outline-color var(--ease);
+}
+
+.card-hover:hover {
+    transform: translateY(-6px);
+}
+
+.review-card {
+    transition: transform var(--ease), filter var(--ease), outline-color var(--ease);
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Gallery cards */
+.gallery-card {
+    height: 100%;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #fff;
+    border: 1px solid #bddff0;
+    box-shadow: 0 6px 18px #266d9120;
+    transition: transform var(--ease), filter var(--ease), outline-color var(--ease),
+                box-shadow var(--ease), border-color var(--ease);
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px #266d9140;
+    border-color: var(--sky-400);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: 0.4s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.06);
+}
+
+.gallery-caption {
+    padding: 18px 12px;
+    text-align: center;
+    color: #225d7f;
+    background: linear-gradient(135deg, var(--sky-50), var(--sky-200));
+}
+
+.gallery-caption h5 {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.gallery-caption p {
+    color: #52748a;
+    font-size: 14px;
+    margin: 0;
+}
+
+
+/* =====================================================
+   5. BUTTONS, NAVBAR & FORMS
+   ===================================================== */
+
+.btn {
+    transition: all var(--ease);
+}
+
+/* Navbar */
+.navbar .nav-link,
+.navbar .navbar-brand {
+    transition: color var(--ease), text-shadow var(--ease);
+}
+
+.navbar.bg-success-subtle {
+    background-color: #e6f4fb !important;
+}
+
+.navbar.bg-success-subtle .btn-outline-success {
+    color: #236f9d;
+    border-color: #4a9fd2;
+}
+
+/* Form fields */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--sky-blue-accent);
+    box-shadow: 0 0 6px var(--sky-blue-accent), 0 0 14px rgba(49, 140, 189, 0.6);
+}
+
+
+/* =====================================================
+   6. HERO BANNERS & ICONS
+   ===================================================== */
+
+/* Sky blue banner (top of inner pages and call-to-action) */
+.page-hero {
+    background: linear-gradient(135deg, var(--sky-800), var(--sky-700), var(--sky-600));
+    color: #fff;
+}
+
+/* About page: "Why Cake Lovers Visit" icons */
+.value-icon {
+    width: 64px;
+    height: 64px;
+    font-size: 1.8rem;
+    background: var(--sky-100);
+}
+
+/* Contact page: info icons */
+.info-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+    background: var(--sky-100);
+    flex-shrink: 0;
+}
+
+.value-icon,
+.info-icon {
+    transition: box-shadow var(--ease), transform var(--ease);
+}
+
+
+/* =====================================================
+   7. FOOTER
+   ===================================================== */
+
+.footer {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 12% 0%, rgba(49, 140, 189, 0.2), transparent 42%),
+        linear-gradient(135deg, #102d40, #174158 58%, #1c5570);
+    color: #fff;
+    margin-top: 40px;
+}
+
+.footer-main {
+    padding-top: 4.5rem;
+    padding-bottom: 3.5rem;
+}
+
+.footer-brand-name {
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: clamp(1.7rem, 3vw, 2.15rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+}
+
+.footer-brand-name span {
+    color: #94d1ee;
+}
+
+.footer-description {
+    max-width: 390px;
+    margin-bottom: 1.5rem;
+    color: #c3dfec;
+    line-height: 1.8;
+}
+
+.footer-shop-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid rgba(148, 209, 238, 0.45);
+    border-radius: 999px;
+    color: #e0f3fa !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.footer-heading {
+    margin: 0 0 1.15rem;
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.footer-list {
+    display: grid;
+    gap: 0.8rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer a {
+    color: #b6d1df;
+    text-decoration: none;
+    transition: color var(--ease), background-color var(--ease), border-color var(--ease);
+}
+
+.footer-contact-copy {
+    margin-bottom: 1.1rem;
+    color: #b6d1df;
+    line-height: 1.7;
+}
+
+.footer-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: #9fd7f0 !important;
+    font-weight: 600;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(148, 209, 238, 0.18);
+    background: rgba(10, 0, 18, 0.28);
+}
+
+.footer-bottom p {
+    margin: 0;
+    color: #a5c0ce;
+    font-size: 0.88rem;
+}
+
+.footer-bottom-inner {
+    display: flex;
+    min-height: 68px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.footer-credit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.footer-credit i {
+    color: #94d1ee;
+}
+
+.back-to-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #9fd7f0 !important;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+/* =====================================================
+   8. SKY BLUE HOVER EFFECTS
+   (drop-shadow + outline are used on cards because the
+   cards have inline box-shadow/border-color rules that a
+   normal hover can't override)
+   ===================================================== */
+
+/* Cards: neon ring + glow */
+.card-hover,
+.review-card,
+.gallery-card {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.card-hover:hover,
+.review-card:hover,
+.gallery-card:hover {
+    outline-color: var(--sky-blue-accent);
+    filter: drop-shadow(0 0 8px var(--sky-blue-accent)) drop-shadow(0 0 22px var(--sky-blue-deep));
+}
+
+/* Buttons: neon fill and glow */
+.btn-primary:hover,
+.btn-outline-primary:hover {
+    background-color: var(--sky-blue-deep) !important;
+    border-color: var(--sky-blue-accent) !important;
+    color: #fff !important;
+    box-shadow: var(--neon-glow);
+    text-shadow: 0 0 6px #fff;
+}
+
+.btn-outline-success:hover,
+.btn-outline-light:hover,
+.btn-light:hover {
+    background-color: transparent !important;
+    border-color: var(--sky-blue-accent) !important;
+    color: #fff !important;
+    box-shadow: var(--neon-glow);
+    text-shadow: 0 0 6px #fff;
+}
+
+/* Navbar links: neon text glow */
+.navbar .nav-link:hover,
+.navbar .navbar-brand:hover {
+    color: var(--sky-blue-deep) !important;
+    text-shadow: 0 0 6px var(--sky-blue-accent), 0 0 14px var(--sky-blue-accent);
+}
+
+/* Footer links: neon text glow */
+.footer a:hover {
+    color: #fff;
+}
+
+.footer-shop-link:hover {
+    border-color: #94d1ee;
+    background: rgba(148, 209, 238, 0.12);
+}
+
+.footer-contact-link:hover,
+.back-to-top:hover {
+    color: #fff !important;
+}
+
+/* Icons: grow and glow */
+.value-icon:hover,
+.info-icon:hover {
+    transform: scale(1.1);
+    box-shadow: var(--neon-glow);
+}
+
+/* Contact page */
+.contact-page {
+    --contact-ink: #19394d;
+    --contact-muted: #526e82;
+    --contact-blue: #317ca6;
+    --contact-pale-blue: #dceffa;
+    --contact-cream: #f2faff;
+    background: var(--contact-cream);
+    color: var(--contact-ink);
+}
+
+.contact-page .navbar {
+    background: #f2faff !important;
+    border-bottom: 1px solid #d5e7ef;
+}
+
+.contact-hero {
+    background: var(--contact-cream);
+    border-bottom: 1px solid #d5e7ef;
+}
+
+.contact-hero-inner {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+.contact-eyebrow {
+    margin: 0 0 0.8rem;
+    color: var(--contact-blue);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.contact-hero-copy h1 {
+    max-width: 520px;
+    margin: 0 0 1rem;
+    color: var(--contact-ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 3.75rem;
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+.contact-hero-copy > p:last-child {
+    max-width: 440px;
+    margin: 0;
+    color: var(--contact-muted);
+    font-size: 1.08rem;
+    line-height: 1.75;
+}
+
+.contact-hero-photo {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1.45;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.contact-main {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+}
+
+.contact-layout {
+    align-items: stretch;
+}
+
+.contact-form-panel {
+    height: 100%;
+    padding: 2.25rem;
+    background: #fff;
+    border: 1px solid #e0e5da;
+    border-radius: 4px;
+}
+
+.contact-form-panel h2,
+.contact-details h2,
+.contact-faq h2 {
+    margin: 0;
+    color: var(--contact-ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.contact-form-intro {
+    max-width: 540px;
+    margin: 0.75rem 0 1.75rem;
+    color: var(--contact-muted);
+    line-height: 1.6;
+}
+
+.contact-page .form-label {
+    color: var(--contact-ink);
+    font-size: 0.9rem;
+}
+
+.contact-page .form-control,
+.contact-page .form-select {
+    min-height: 48px;
+    border: 1px solid #c9dfe8;
+    border-radius: 3px;
+    background-color: #f9fdff;
+}
+
+.contact-page textarea.form-control {
+    min-height: 140px;
+}
+
+.contact-page .form-control:focus,
+.contact-page .form-select:focus {
+    border-color: var(--contact-blue);
+    box-shadow: 0 0 0 3px rgba(49, 124, 166, 0.14);
+}
+
+.contact-submit {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-height: 48px;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid var(--contact-blue);
+    border-radius: 3px;
+    background: var(--contact-blue);
+    color: #fff;
+    font-weight: 700;
+}
+
+.contact-submit:hover {
+    border-color: #246a8f;
+    background: #246a8f;
+    color: #fff;
+}
+
+.contact-success {
+    border: 1px solid #bedce9;
+    border-radius: 3px;
+    background: #eaf6fb;
+    color: #294b38;
+}
+
+.contact-details {
+    height: 100%;
+    padding: 2.25rem;
+    background: var(--contact-pale-blue);
+    border-radius: 4px;
+}
+
+.contact-details h2 {
+    margin-bottom: 2rem;
+}
+
+.contact-details .info-icon {
+    border-radius: 3px !important;
+    background: rgba(255, 255, 255, 0.68);
+    color: var(--contact-blue);
+}
+
+.contact-details h6 {
+    color: var(--contact-ink);
+}
+
+.contact-details .text-secondary {
+    color: var(--contact-muted) !important;
+}
+
+.contact-social {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(25, 57, 77, 0.18);
+}
+
+.contact-social h3 {
+    margin: 0 0 0.9rem;
+    color: var(--contact-ink);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.contact-social a {
+    display: inline-grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border: 1px solid rgba(25, 57, 77, 0.3);
+    border-radius: 50%;
+    color: var(--contact-blue);
+    text-decoration: none;
+}
+
+.contact-social a:hover {
+    background: var(--contact-blue);
+    color: #fff;
+}
+
+.contact-faq {
+    padding-top: 2rem;
+}
+
+.contact-faq .text-center {
+    margin-bottom: 2rem !important;
+}
+
+.contact-faq h2 {
+    font-size: 2.25rem;
+}
+
+.contact-faq .accordion-item {
+    border: 0;
+    border-bottom: 1px solid #d8dfd5;
+    background: transparent;
+}
+
+.contact-faq .accordion-button {
+    padding: 1.25rem 0.25rem;
+    background: transparent;
+    color: var(--contact-ink);
+    font-weight: 700;
+    box-shadow: none;
+}
+
+.contact-faq .accordion-button:not(.collapsed) {
+    color: var(--contact-blue);
+}
+
+.contact-page .contact-faq .accordion-button:not(.collapsed),
+.contact-page .contact-faq .accordion-button:focus {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.contact-faq .accordion-button::after {
+    filter: grayscale(1) brightness(0.55);
+}
+
+.contact-faq .accordion-body {
+    padding: 0 2.5rem 1.25rem 0.25rem;
+    color: var(--contact-muted) !important;
+}
+
+@media (max-width: 767.98px) {
+    .contact-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 3rem 1.25rem;
+    }
+
+    .contact-hero-copy h1 {
+        font-size: 3rem;
+    }
+
+    .contact-hero-photo {
+        aspect-ratio: 1.25;
+    }
+
+    .contact-main {
+        padding-top: 2.5rem !important;
+        padding-bottom: 2.5rem !important;
+    }
+
+    .contact-form-panel,
+    .contact-details {
+        padding: 1.5rem;
+    }
+}
+
+/* Shared bakery footer */
+.footer {
+    margin-top: 3rem;
+    border-top: 4px solid #4a9fd2;
+    background: linear-gradient(135deg, #e6f4fb, #f4fbfe 58%, #d7edf8);
+    color: #123449;
+}
+
+.footer-main {
+    padding-top: 3.5rem;
+    padding-bottom: 3rem;
+}
+
+.footer-brand-name {
+    color: #123449;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 2rem;
+    letter-spacing: 0;
+}
+
+.footer-brand-name span {
+    color: #3585b5;
+}
+
+.footer-description,
+.footer-contact-copy {
+    color: #456579;
+}
+
+.footer-shop-link {
+    padding: 0.7rem 0.9rem;
+    border: 1px solid #236f9d;
+    border-radius: 3px;
+    background: #236f9d;
+    color: #fff !important;
+}
+
+.footer-heading {
+    color: #236f9d;
+    letter-spacing: 0.08em;
+}
+
+.footer a {
+    color: #244f68;
+}
+
+.footer-contact-link,
+.back-to-top {
+    color: #236f9d !important;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(230, 244, 251, 0.2);
+    background: #123449;
+}
+
+.footer-bottom p {
+    color: #d9edf7;
+}
+
+.footer-credit i {
+    color: #9bd3ef;
+}
+
+.footer a:hover {
+    color: #123449 !important;
+}
+
+.footer .footer-shop-link:hover {
+    border-color: #174866;
+    background: #174866;
+    color: #fff !important;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.footer .footer-contact-link:hover,
+.footer .back-to-top:hover {
+    color: #4a9fd2 !important;
+}
+
+@media (max-width: 575.98px) {
+    .footer-bottom-inner {
+        justify-content: center;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        text-align: center;
+    }
+
+    .footer-bottom-inner > * {
+        flex: 1 1 100%;
+        justify-content: center;
+    }
+}
+
